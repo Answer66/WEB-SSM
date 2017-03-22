@@ -1,13 +1,15 @@
 package com.heitian.ssm.controller;
 
 import com.heitian.ssm.model.User;
+import com.heitian.ssm.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * Created by 兆禄 on 2017/3/13.
@@ -15,12 +17,22 @@ import java.util.List;
 @Controller
 public class LoginController {
 
+    private Logger logger = Logger.getLogger(LoginController.class);
+    @Resource
+    private UserService userService;
+
     @RequestMapping("/login")
     public String login(HttpSession session,HttpServletRequest request, Model model,String username,String password){
         System.out.println("进入了登陆！！");
+        logger.info("这是测试日志文件");
+        User user = userService.userLogin(username,password);
+        if(user!=null){
+            logger.info("登陆成功");
+            return "home";
+        }
         session.setAttribute("username",username );
-        System.out.println("用户名是"+username);
-        return "home";
+        logger.info("username="+username+"            userpassword="+password);
+        return "loginTest";
     }
 
     @RequestMapping("/logout")
