@@ -24,7 +24,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception{
-        System.out.println("进入了拦截器的preHandle");
+//        System.out.println("进入了拦截器的preHandle");
         String url = request.getRequestURI();
         if(url.indexOf("login")>=0){
             return true;

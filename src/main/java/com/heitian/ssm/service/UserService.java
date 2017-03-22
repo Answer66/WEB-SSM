@@ -14,4 +14,6 @@ public interface UserService {
     User getUserByPhoneOrEmail(String emailOrPhone, Short state);
 
     User getUserById(Long userId);
+
+    User userLogin(String username,String password);
 }

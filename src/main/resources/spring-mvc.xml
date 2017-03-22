@@ -54,6 +54,11 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <mvc:annotation-driven/>
+
+    <mvc:resources location="/images/" mapping="/images/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/css/" mapping="/css/**"/>
 
     <mvc:interceptors>
         <!-- 多个拦截器，顺序执行 -->
@@ -63,10 +68,6 @@
             <bean class="com.heitian.ssm.utils.LoginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
-    <mvc:annotation-driven/>
-    <mvc:resources location="/images/" mapping="/images/**"/>
-    <mvc:resources location="/js/" mapping="/js/**"/>
-    <mvc:resources location="/css/" mapping="/css/**"/>
 
 
     <!-- 文件上传配置 -->

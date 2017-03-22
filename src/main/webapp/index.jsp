@@ -22,7 +22,7 @@
 
 
     <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">
-
+        <form action="${pageContext.request.contextPath}/login" method="post">
         <!--登录-->
         <div class="web_login" id="web_login">
 
@@ -44,7 +44,7 @@
                             <label class="input-tips" for="p">密码：</label>
                             <div class="inputOuter" id="pArea">
 
-                                <input type="password" id="p" name="p" class="inputstyle"/>
+                                <input type="password" id="p" name="password" class="inputstyle"/>
                             </div>
                         </div>
 
@@ -55,6 +55,7 @@
             </div>
 
         </div>
+        </form>
         <!--登录end-->
     </div>
 
